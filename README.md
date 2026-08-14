@@ -1,5 +1,7 @@
 # 🏷️ YouTube Comments Sentiment Classification
 
+![Title Slide](images/title_slide.png)
+
 ## 📝 Problem Statement
 
 With the explosive growth of user-generated content on platforms like YouTube, analyzing comment sentiment is crucial for understanding audience feedback, improving content strategies, and detecting potentially harmful or toxic messages.
@@ -12,6 +14,10 @@ This project builds, evaluates, and compares multiple models — **Random Forest
 - Evaluate each model's performance using accuracy, confusion matrix, and classification report.
 - Provide an interface for users to input custom comments and predict sentiment.
 - Visualize and compare results across models.
+
+## ⚙️ Pipeline Overview
+
+![Pipeline Diagram](images/pipeline_diagram.png)
 
 ## ⚙️ How It Works
 
@@ -40,20 +46,72 @@ This project builds, evaluates, and compares multiple models — **Random Forest
 - **Deep Learning:** TensorFlow / Keras (Embedding, Conv1D, GlobalMaxPooling1D)
 - **NLP utilities:** langdetect, emoji, re
 
-## 📁 Contents
+## 📊 Results
 
-| File | Description |
+### Exploratory Data Analysis
+
+| Sentiment Distribution | Word Count by Sentiment |
 |---|---|
-| `Utube_Comment_Analysis_ipynb.ipynb` | Main analysis notebook — end-to-end pipeline from data loading to prediction |
+| ![Sentiment Distribution](images/sentiment_distribution.png) | ![Word Count by Sentiment](images/word_count_by_sentiment.png) |
+
+### Random Forest
+
+| Confusion Matrix | ROC Curve |
+|---|---|
+| ![RF Confusion Matrix](images/confusion_matrix_random_forest.png) | ![RF ROC Curve](images/roc_curve_random_forest.png) |
+
+### SVM
+
+| Confusion Matrix | ROC Curve |
+|---|---|
+| ![SVM Confusion Matrix](images/confusion_matrix_svm.png) | ![SVM ROC Curve](images/roc_curve_svm.png) |
+
+### CNN
+
+| Confusion Matrix | ROC Curve |
+|---|---|
+| ![CNN Confusion Matrix](images/confusion_matrix_cnn.png) | ![CNN ROC Curve](images/roc_curve_cnn.png) |
+
+### Model Comparison
+
+![Model Accuracy Comparison](images/model_accuracy_comparison.png)
+
+## 📁 Repository Structure
+
+```
+youtube-comment-sentiment-analysis/
+├── Utube_Comment_Analysis_ipynb.ipynb   # Main analysis notebook
+├── data/
+│   └── YoutubeCommentsDataSet.csv       # Labeled comment dataset
+├── images/
+│   ├── title_slide.png
+│   ├── pipeline_diagram.png
+│   ├── sentiment_distribution.png
+│   ├── word_count_by_sentiment.png
+│   ├── confusion_matrix_random_forest.png
+│   ├── roc_curve_random_forest.png
+│   ├── confusion_matrix_svm.png
+│   ├── roc_curve_svm.png
+│   ├── confusion_matrix_cnn.png
+│   ├── roc_curve_cnn.png
+│   └── model_accuracy_comparison.png
+├── README.md
+├── LICENSE
+└── .gitignore
+```
 
 ## 🚀 Running the Notebook
 
-This notebook was built in Google Colab and expects a CSV dataset (`YoutubeCommentsDataSet.csv`) with `Comment` and `Sentiment` columns, uploaded to `/content/`.
+This notebook was built in Google Colab and expects a CSV dataset (`YoutubeCommentsDataSet.csv`) with `Comment` and `Sentiment` columns.
 
 1. Open the notebook in [Google Colab](https://colab.research.google.com/).
-2. Upload your dataset to the Colab session (`/content/YoutubeCommentsDataSet.csv`).
+2. Upload `data/YoutubeCommentsDataSet.csv` to the Colab session as `/content/YoutubeCommentsDataSet.csv` (or update the path in the notebook to point at `data/YoutubeCommentsDataSet.csv` if running locally).
 3. Run all cells in order.
 4. Use the final prediction cell to test custom comments against the trained models.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## ✅ Conclusion
 
